@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Module {
+  id          String @id
+  name        String
+  category    String
+  icon        String
+  description String
+}
+
+model Industry {
+  id          String @id
+  name        String
+  description String
+}
+
+model Plan {
+  id           String  @id
+  name         String
+  tagline      String
+  monthlyPrice Int
+  currency     String
+  isPopular    Boolean
+  features     String  // Stored as stringified JSON due to SQLite limitations
+}
+
+model Testimonial {
+  id     String @id
+  name   String
+  role   String
+  rating Float
+  quote  String
+}
+
+model Faq {
+  id       String @id
+  order    Int
+  question String
+  answer   String
+}
+
+model DemoRequest {
+  id        String   @id @default(cuid())
+  fullName  String
+  email     String
+  planId    String?
+  status    String   @default("new") // 'new', 'contacted', 'closed'
+  createdAt DateTime @default(now())
+}
