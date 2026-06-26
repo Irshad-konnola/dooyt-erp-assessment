@@ -1,0 +1,44 @@
+{
+  "apiKey": "dooyt-demo-key-2026",
+  "modules": [
+    { "id": "crm", "name": "CRM", "category": "sales", "icon": "users", "description": "Manage and improve interactions with current and potential customers, build stronger relationships, and drive sustainable growth." },
+    { "id": "task-management", "name": "Task Management", "category": "operations", "icon": "check-square", "description": "Plan, assign, and track tasks across teams with deadlines, priorities, and real-time status." },
+    { "id": "hrms", "name": "HRMS", "category": "people", "icon": "user-cog", "description": "Handle employee records, attendance, payroll, and leave from a single people-management hub." },
+    { "id": "project-management", "name": "Project Management", "category": "operations", "icon": "kanban", "description": "Plan projects, allocate resources, track milestones, and deliver on time." },
+    { "id": "accounting", "name": "Accounting", "category": "finance", "icon": "calculator", "description": "Track income, expenses, invoices, and financial reports to keep your books accurate." },
+    { "id": "ecommerce", "name": "E-commerce", "category": "sales", "icon": "shopping-cart", "description": "Sync inventory, orders, and customer data for smooth online store management." },
+    { "id": "marketing-automation", "name": "Marketing Automation", "category": "marketing", "icon": "megaphone", "description": "Automate campaigns, nurture leads, and measure marketing performance." },
+    { "id": "inventory", "name": "Inventory", "category": "operations", "icon": "boxes", "description": "Track stock levels, movements, and reordering across warehouses in real time." }
+  ],
+  "industries": [
+    { "id": "solar", "name": "Solar", "description": "Customizable ERP that simplifies daily solar operations with better project control, real-time insights, and faster, risk-free workflows." },
+    { "id": "it-saas", "name": "IT and SaaS", "description": "Scalable ERP for IT and SaaS to manage projects, resources, and optimize financial performance in real time." },
+    { "id": "construction", "name": "Construction", "description": "Reduce costs, improve efficiency, and ensure projects are completed on time." },
+    { "id": "education", "name": "Education", "description": "Automate administrative processes for preschools, schools, colleges, and coaching institutes." },
+    { "id": "manufacturing", "name": "Manufacturing", "description": "Integrate every aspect of the business on a single database for smooth operations." },
+    { "id": "ecommerce", "name": "E-commerce", "description": "Sync inventory, orders, and customer data for smooth business management." },
+    { "id": "logistics", "name": "Logistics", "description": "Automate logistics processes, control costs, and ensure smooth operations." },
+    { "id": "digital-marketing", "name": "Digital Marketing", "description": "Simplify daily tasks, improve client service, and boost profitability." }
+  ],
+  "plans": [
+    { "id": "starter", "name": "Starter Plan", "tagline": "Great for small businesses.", "monthlyPrice": 799, "currency": "INR", "isPopular": false,
+      "features": ["Core modules: Finance, HR, CRM", "Up to 10 users", "Standard reports & analytics", "Email support"] },
+    { "id": "pro", "name": "Pro Plan", "tagline": "For growing teams managing multiple operations.", "monthlyPrice": 1499, "currency": "INR", "isPopular": true,
+      "features": ["Includes all Starter modules", "Adds Project Management, Sales & Inventory", "Advanced dashboards & analytics", "Custom dashboards", "Role based access control", "Priority support"] },
+    { "id": "enterprise", "name": "Enterprise Plan", "tagline": "For large organizations that need full customization.", "monthlyPrice": 2999, "currency": "INR", "isPopular": false,
+      "features": ["All ERP modules included", "API integrations & custom workflows", "Dedicated account manager", "On-premise or cloud deployment", "24/7 premium support", "Custom integration support", "Compliance tools"] }
+  ],
+  "testimonials": [
+    { "id": "t1", "name": "Guy Hawkins", "role": "CEO & Founder", "rating": 5.0, "quote": "Dooyt has made managing our business so much easier! The platform is simple, fast, and helps our team stay organized." },
+    { "id": "t2", "name": "Jane Cooper", "role": "Operations Lead", "rating": 5.0, "quote": "Switching to Dooyt replaced four separate tools for us. Reporting now takes minutes instead of days." },
+    { "id": "t3", "name": "Wade Warren", "role": "Managing Director", "rating": 5.0, "quote": "The dashboards give me instant visibility across departments. Onboarding was quick and support is genuinely helpful." }
+  ],
+  "faqs": [
+    { "id": "f1", "order": 1, "question": "What is Dooyt?", "answer": "Dooyt is an easy-to-use ERP software designed to help businesses manage their projects, clients, and tasks efficiently in one place." },
+    { "id": "f2", "order": 2, "question": "Do you provide customer support?", "answer": "Yes. Every plan includes support, with priority and 24/7 premium options on higher tiers." },
+    { "id": "f3", "order": 3, "question": "Is my data safe with Dooyt?", "answer": "Yes. Your data is encrypted in transit and at rest, protected with role-based access control and regular backups." },
+    { "id": "f4", "order": 4, "question": "Can I change plans easily?", "answer": "Absolutely. You can upgrade or downgrade your plan at any time from your account settings." },
+    { "id": "f5", "order": 5, "question": "Is Dooyt easy to use?", "answer": "Dooyt is built for non-technical users with an intuitive, dashboard-driven interface." },
+    { "id": "f6", "order": 6, "question": "Can I access Dooyt from my mobile phone?", "answer": "Yes. Dooyt is available on the web and through our iOS and Android apps." }
+  ]
+}

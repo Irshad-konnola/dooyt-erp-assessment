@@ -1,78 +1,116 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, BarChart3, TrendingUp, Wallet } from "lucide-react";
+import { Phone, ChevronRight, Star } from "lucide-react";
+import DashboardShowCase from "@/components/DashboardShowCase";
+import ModulesSection from "@/components/ModulesSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import IndustriesSection from "@/components/IndustriesSection";
+import CtaSection from "@/components/CtaSection";
+import PricingSection from "@/components/PricingSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FaqSection from "@/components/FaqSection";
+// modules
+async function getModules() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/modules`, {
+    cache: 'no-store' 
+  });
+  if (!res.ok) {
+    return [];
+  }
+  const json = await res.json();
+  return json.data;
+}
+// industries
+async function getIndustries() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/industries`, { cache: 'no-store' });
+  if (!res.ok) return [];
+  const json = await res.json();
+  return json.data;
+}
+// plans
+async function getPlans() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/plans?billing=monthly`, { cache: 'no-store' });
+  if (!res.ok) return [];
+  const json = await res.json();
+  return json.data;
+}
 
-export default function Home() {
+async function getTestimonials() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/testimonials?limit=3`, { cache: 'no-store' });
+  if (!res.ok) return [];
+  const json = await res.json();
+  return json.data;
+}
+
+async function getFaqs() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/faqs`, { cache: 'no-store' });
+  if (!res.ok) return [];
+  const json = await res.json();
+  return json.data;
+}
+
+export default async function Home() {
+const [modules, industries, plans, testimonials, faqs] = await Promise.all([
+    getModules(),
+    getIndustries(),
+    getPlans(),
+    getTestimonials(), 
+    getFaqs() 
+  ]);
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="bg-white min-h-screen font-sans">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 lg:pt-32 overflow-hidden bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            
-            {/* Left Column - Copy & CTA */}
-            <div className="max-w-2xl">
-              <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 mb-6 leading-tight">
-                Accuracy. <br />
-                <span className="text-blue-600">Productivity.</span> <br />
-                Business Wins.
-              </h1>
-              <p className="text-lg text-zinc-600 mb-8 max-w-xl leading-relaxed">
-                Streamline your operations, automate workflows, and gain real-time visibility into every department. The smart ERP solution built for modern teams.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="h-12 px-8 text-base gap-2 bg-blue-600 hover:bg-blue-700">
-                  Try for 30 Days <ArrowRight className="h-5 w-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="h-12 px-8 text-base">
-                  View Modules
-                </Button>
-              </div>
-            </div>
-
-            {/* Right Column - Dashboard / Metric Visuals */}
-            <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-              {/* Decorative background blob */}
-              <div className="absolute -top-12 -right-12 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-              
-              <div className="relative grid gap-4 md:gap-6 bg-zinc-50 border border-zinc-100 p-6 rounded-2xl shadow-xl">
-                {/* Metric Card 1 */}
-                <div className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-zinc-100">
-                  <div className="p-3 bg-blue-50 text-blue-600 rounded-lg">
-                    <Wallet className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-zinc-500">Quarterly Revenue</p>
-                    <h3 className="text-2xl font-bold text-zinc-900">€93,800,300</h3>
-                  </div>
-                </div>
-
-                {/* Metric Card 2 */}
-                <div className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-zinc-100 ml-8">
-                  <div className="p-3 bg-green-50 text-green-600 rounded-lg">
-                    <TrendingUp className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-zinc-500">Annual Projection</p>
-                    <h3 className="text-2xl font-bold text-zinc-900">€120,993,000</h3>
-                  </div>
-                </div>
-
-                {/* Metric Card 3 */}
-                <div className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-zinc-100">
-                  <div className="p-3 bg-purple-50 text-purple-600 rounded-lg">
-                    <BarChart3 className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-zinc-500">Total Volume</p>
-                    <h3 className="text-2xl font-bold text-zinc-900">€496,085,100</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+      <section className="relative pt-24 pb-32 flex flex-col items-center justify-center text-center px-4 sm:px-6">
+        
+        {/* Top Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFF6F0] mb-8">
+          <span className="text-lg leading-none">🔥</span>
+          <span className="text-sm font-medium text-[#F26419]">Best ERP Software</span>
         </div>
+
+        {/* Headline */}
+        <h1 className="text-5xl sm:text-6xl md:text-[5.5rem] font-bold tracking-tight text-[#111111] mb-2">
+          Accuracy. Productivity.
+        </h1>
+        <h1 className="text-5xl sm:text-6xl md:text-[5.5rem] font-bold tracking-tight text-[#F26419] mb-8">
+          Business Wins
+        </h1>
+
+        {/* Subheadline */}
+        <p className="text-lg md:text-xl text-zinc-500 max-w-4xl mx-auto leading-relaxed mb-12">
+          Instead of using many tools, just choose one to control your entire business effortlessly. Dooyt, the best ERP software that makes smarter decisions and drives business growth.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
+          <button className="flex items-center justify-center gap-2 bg-[#F26419] text-white text-base font-semibold px-8 py-4 rounded-xl hover:bg-[#d95615] transition-all w-full sm:w-auto">
+            <Phone className="w-5 h-5 fill-current" />
+            Request A Demo
+          </button>
+          <button className="flex items-center justify-center gap-2 bg-white border border-zinc-300 text-[#111111] text-base font-semibold px-8 py-4 rounded-xl hover:bg-zinc-50 transition-all w-full sm:w-auto">
+            Try Free for 30 Days
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Rating */}
+        <div className="flex items-center gap-3">
+          <div className="flex gap-1 text-[#FFB800]">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star key={star} className="w-4 h-4 fill-current border-none" />
+            ))}
+          </div>
+          <span className="text-sm text-zinc-500 font-medium">(Rating 4.5 star)</span>
+        </div>
+
       </section>
+      <DashboardShowCase/>
+      <ModulesSection modules={modules} />
+      <FeaturesSection/>
+      <IndustriesSection industries={industries} />
+      <CtaSection />
+      <PricingSection initialPlans={plans} />
+      <TestimonialsSection testimonials={testimonials} />
+      <FaqSection faqs={faqs} />
     </div>
   );
 }
