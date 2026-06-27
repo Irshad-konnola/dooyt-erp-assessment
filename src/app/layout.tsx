@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
+import DemoModal from "@/components/DemoModal";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,10 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} min-h-screen bg-zinc-50 antialiased text-zinc-900`}>
+      <body
+        className={`${inter.className} min-h-screen bg-zinc-50 antialiased text-zinc-900`}
+      >
         <Navbar />
         <main>{children}</main>
-        <Footer/>
+        <Footer />
+        <DemoModal />
       </body>
     </html>
   );

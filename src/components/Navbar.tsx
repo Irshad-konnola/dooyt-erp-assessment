@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <div className="pt-4 px-4 sm:px-6 lg:px-8 max-w-[1200px] mx-auto w-full relative z-50">
       {/* Main Navbar Bar */}
-      <nav className="bg-[#FFF6F0] rounded-[32px] px-6 py-3 flex items-center justify-between shadow-sm relative">
+      <nav className="bg-[#FFF6F0] rounded-[12px] px-4 py-2 flex items-center justify-between shadow-sm relative">
         
         {/* Logo */}
         <div className="flex-shrink-0 z-20">
@@ -46,7 +46,9 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex z-20">
-          <button className="bg-black text-white text-[15px] font-medium px-6 py-2.5 rounded-xl hover:bg-zinc-800 transition-all">
+          <button 
+          onClick={() => window.dispatchEvent(new CustomEvent('open-demo-modal'))}
+          className="bg-black text-white text-[15px] font-medium px-6 py-2.5 rounded-xl hover:bg-zinc-800 transition-all">
             Request A Demo
           </button>
         </div>
@@ -77,7 +79,9 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="pt-2 mt-2 border-t border-zinc-100">
-            <button className="w-full bg-black text-white text-base font-medium px-6 py-4 rounded-xl hover:bg-zinc-800 transition-all">
+            <button
+            onClick={() => window.dispatchEvent(new CustomEvent('open-demo-modal'))}
+            className="w-full bg-black text-white text-base font-medium px-6 py-4 rounded-xl hover:bg-zinc-800 transition-all">
               Request A Demo
             </button>
           </div>

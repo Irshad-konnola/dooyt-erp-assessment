@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { z } from 'zod';
 
-// Define the exact payload shape and validation rules
 const demoRequestSchema = z.object({
   fullName: z.string().min(1, "Full name is required"),
   email: z.string().email("Invalid email address"),
@@ -44,7 +43,7 @@ export async function POST(request: Request) {
         fullName,
         email,
         planId,
-        status: 'new', // Defaults to 'new' as per our schema
+        status: 'new', 
       },
     });
 

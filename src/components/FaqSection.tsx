@@ -45,7 +45,6 @@ export default function FaqSection({ faqs }: { faqs: Faq[] }) {
                     {faq.question}
                   </span>
                   
-                  {/* Custom Circle Icon */}
                   <div className="w-6 h-6 rounded-full bg-[#111] flex items-center justify-center flex-shrink-0 ml-4 transition-transform duration-300">
                     {isOpen ? (
                       <Minus className="w-4 h-4 text-white" />

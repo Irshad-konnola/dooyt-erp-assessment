@@ -93,7 +93,6 @@ export default function Footer() {
               <svg className="w-[18px] h-[18px] fill-[#A1A1AA]" viewBox="0 0 320 512"><path d="M279.1 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.4 0 225.4 0c-73.22 0-121.1 44.38-121.1 124.7v70.62H22.89V288h81.39v224h100.2V288z"/></svg>
             </Link>
             <Link href="#" className="w-11 h-11 rounded-[14px] bg-[#1a1a1c] hover:bg-[#27272a] flex items-center justify-center transition-colors">
-              {/* Custom X logo instead of standard Twitter bird */}
               <svg className="w-[18px] h-[18px] fill-[#A1A1AA]" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
             </Link>
             <Link href="#" className="w-11 h-11 rounded-[14px] bg-[#1a1a1c] hover:bg-[#27272a] flex items-center justify-center transition-colors">
